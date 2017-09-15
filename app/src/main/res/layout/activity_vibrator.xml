@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/one_shot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一回"/>
+
+    <Button
+        android:id="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="二回"/>
+
+    <Button
+        android:id="@+id/infinite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="無限"/>
+
+    <Button
+        android:id="@+id/five_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5秒"/>
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止"/>
+</LinearLayout>
