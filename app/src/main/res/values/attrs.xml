@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CircleGraphView">
+    <declare-styleable name="ArcGraphView">
         <attr name="cgv_border_width" format="dimension" />
         <attr name="cgv_border_color" format="color" />
         <attr name="cgv_start_degree" format="float" />

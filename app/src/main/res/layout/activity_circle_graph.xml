@@ -9,7 +9,7 @@
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="200dp">
-        <com.eda.androidsamples.graph.CircleGraphView
+        <com.eda.androidsamples.graph.ArcGraphView
             android:id="@+id/graph"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -18,7 +18,7 @@
             app:cgv_border_color="#689C50"
             app:cgv_start_degree="-90"
             app:cgv_arc_degree="125" />
-        <com.eda.androidsamples.graph.CircleGraphView
+        <com.eda.androidsamples.graph.ArcGraphView
             android:id="@+id/graph2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

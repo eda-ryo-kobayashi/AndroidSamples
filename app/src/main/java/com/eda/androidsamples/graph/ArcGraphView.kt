@@ -13,7 +13,7 @@ import com.eda.androidsamples.R
  *
  * 円グラフ
  */
-class CircleGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
+class ArcGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
 
     companion object {
         private val DEFAULT_BORDER_WIDTH = 10
@@ -32,31 +32,31 @@ class CircleGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAt
     init {
         paint.isAntiAlias = true
 
-        val res = context?.theme?.obtainStyledAttributes(attrs, R.styleable.CircleGraphView, defStyleAttr, 0)
+        val res = context?.theme?.obtainStyledAttributes(attrs, R.styleable.ArcGraphView, defStyleAttr, 0)
         try {
 
             run {
-                val borderWidth = res?.getDimensionPixelSize(R.styleable.CircleGraphView_cgv_border_width, DEFAULT_BORDER_WIDTH)
+                val borderWidth = res?.getDimensionPixelSize(R.styleable.ArcGraphView_agv_border_width, DEFAULT_BORDER_WIDTH)
                 borderWidth?.let {
                     this.borderWidth = borderWidth.toFloat()
                 }
             }
 
             run {
-                val color = res?.getColor(R.styleable.CircleGraphView_cgv_border_color, DEFAULT_BORDER_COLOR)
+                val color = res?.getColor(R.styleable.ArcGraphView_agv_border_color, DEFAULT_BORDER_COLOR)
                 color?.let {
                     paint.color = color
                 }
             }
 
             run {
-                val degree = res?.getFloat(R.styleable.CircleGraphView_cgv_arc_degree, DEFAULT_DEGREE)
+                val degree = res?.getFloat(R.styleable.ArcGraphView_agv_arc_degree, DEFAULT_DEGREE)
                 degree?.let {
                     arcDegree = degree
                 }
             }
             run {
-                val degree = res?.getFloat(R.styleable.CircleGraphView_cgv_start_degree, DEFAULT_DEGREE)
+                val degree = res?.getFloat(R.styleable.ArcGraphView_agv_start_degree, DEFAULT_DEGREE)
                 degree?.let {
                     startDegree = degree
                 }
@@ -72,11 +72,11 @@ class CircleGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAt
         arcDegreeAnimator?.cancel()
     }
 
-    fun setStartAngle(degree: Float): CircleGraphView {
+    fun setStartAngle(degree: Float): ArcGraphView {
         startDegree = degree
         return this
     }
-    fun setAngle(degree: Float): CircleGraphView {
+    fun setAngle(degree: Float): ArcGraphView {
         arcDegree =
             if(degree > 360f) {
                 360f
@@ -87,7 +87,7 @@ class CircleGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAt
             }
         return this
     }
-    fun setAngleByPercent(percent: Float): CircleGraphView {
+    fun setAngleByPercent(percent: Float): ArcGraphView {
         arcDegree =
             if(percent > 100) {
                 360f
@@ -98,7 +98,7 @@ class CircleGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAt
             }
         return this
     }
-    fun setAngleByRatio(ratio: Float): CircleGraphView {
+    fun setAngleByRatio(ratio: Float): ArcGraphView {
         arcDegree =
             if(ratio > 1.0f) {
                 360f
@@ -109,12 +109,12 @@ class CircleGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAt
             }
         return this
     }
-    fun setBorderWidth(width: Float): CircleGraphView {
+    fun setBorderWidth(width: Float): ArcGraphView {
         borderWidth = width
         return this
     }
 
-    fun animateAngle(toAngle: Float, duration: Long): CircleGraphView {
+    fun animateAngle(toAngle: Float, duration: Long): ArcGraphView {
         arcDegreeAnimator?.removeAllUpdateListeners()
         arcDegreeAnimator?.cancel()
         val ta =

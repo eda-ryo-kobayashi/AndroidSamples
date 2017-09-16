@@ -3,7 +3,7 @@ package com.eda.androidsamples
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.eda.androidsamples.graph.CircleGraphView
+import com.eda.androidsamples.graph.ArcGraphView
 
 /**
  * Created by kobayashiryou on 2017/09/14.
@@ -13,7 +13,7 @@ import com.eda.androidsamples.graph.CircleGraphView
 class CircleGraphActivity : AppCompatActivity() {
 
     private var angleDegree = 180.0f
-    private lateinit var cgv: CircleGraphView
+    private lateinit var cgv: ArcGraphView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
