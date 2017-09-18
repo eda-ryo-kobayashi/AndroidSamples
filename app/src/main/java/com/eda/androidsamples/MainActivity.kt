@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             // TODO zxingでQR、Data Matrixキャプチャ
             Item("Chrome Custom TabsでWebページを見る", ChromeViewActivity::class.java),
             Item("加速度センサーを使う", AccelerometerActivity::class.java),
+            Item("ジャイロセンサーを使う", GyrosensorActivity::class.java),
             Item("バイブレータを使う", VibratorActivity::class.java),
             Item("フラッシュライトを使う", FlashLightActivity::class.java),
             Item("通知欄にメッセージを表示", NotificationActivity::class.java),

@@ -39,6 +39,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CircleGraphActivity"/>
+        <activity android:name=".GyrosensorActivity"/>
 
         <service android:name=".customtabs.KeepAliveService"/>
 
