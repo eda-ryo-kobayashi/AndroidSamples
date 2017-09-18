@@ -1,5 +1,5 @@
 # AndroidSamples
-Androidの色々な処理のサンプル
+Kotlinで書いたAndroidの色々な処理のサンプル
 
 
 - フォント一覧画面
