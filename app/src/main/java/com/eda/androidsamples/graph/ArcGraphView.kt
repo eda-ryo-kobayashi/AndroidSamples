@@ -29,6 +29,9 @@ class ArcGraphView(context: Context?, attrs: AttributeSet? = null, defStyleAttr:
     private var arcDegree = DEFAULT_DEGREE
     private var arcDegreeAnimator: ValueAnimator? = null
 
+    constructor(context: Context?) : this(context, null)
+    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
+
     init {
         paint.isAntiAlias = true
 
