@@ -28,7 +28,7 @@ class CameraKitActivity : AppCompatActivity() {
                 super.onPictureTaken(jpeg)
 
                 val capImg = BitmapFactory.decodeByteArray(jpeg, 0, jpeg?.size!!)
-                findViewById<ImageView>(R.id.preview).setImageBitmap(capImg)
+                runOnUiThread { findViewById<ImageView>(R.id.preview).setImageBitmap(capImg) }
             }
         })
 
