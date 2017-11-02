@@ -41,6 +41,7 @@
         <activity android:name=".CircleGraphActivity"/>
         <activity android:name=".GyrosensorActivity"/>
         <activity android:name=".RoomSampleActivity"/>
+        <activity android:name=".PaletteActivity"/>
 
         <service android:name=".customtabs.KeepAliveService"/>
 
