@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
-import com.flurgle.camerakit.CameraListener
-import com.flurgle.camerakit.CameraView
+import com.wonderkiln.camerakit.CameraListener
+import com.wonderkiln.camerakit.CameraView
 
 /**
  * Created by kobayashiryou on 2017/09/13.

@@ -6,7 +6,7 @@
               android:layout_height="match_parent"
     android:padding="16dp">
 
-    <com.flurgle.camerakit.CameraView
+    <com.wonderkiln.camerakit.CameraView
         android:id="@+id/camera"
         android:layout_width="300dp"
         android:layout_height="300dp"

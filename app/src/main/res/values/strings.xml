@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidSamples</string>
+
+    <string name="user_id">ID : %s</string>
+    <string name="user_name">名前 : %s</string>
+    <string name="user_age">年齢 : %d</string>
 </resources>

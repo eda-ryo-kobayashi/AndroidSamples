@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
             Item("バイブレータを使う", VibratorActivity::class.java),
             Item("フラッシュライトを使う", FlashLightActivity::class.java),
             Item("通知欄にメッセージを表示", NotificationActivity::class.java),
-            Item("円グラフ的なやつ表示", CircleGraphActivity::class.java)
+            Item("円グラフ的なやつ表示", CircleGraphActivity::class.java),
+            Item("Roomデータベースを使ったテスト", RoomSampleActivity::class.java)
         )
     }
 
