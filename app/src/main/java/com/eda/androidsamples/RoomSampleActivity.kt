@@ -90,7 +90,7 @@ class RoomSampleActivity : AppCompatActivity() {
     class Adapter(
         context: Context,
         private val inflater: LayoutInflater = LayoutInflater.from(context),
-        val items: MutableList<User> = mutableListOf()
+        private val items: MutableList<User> = mutableListOf()
     ) : RecyclerView.Adapter<ViewHolder>() {
 
         fun setItems(newItems: List<User>) {
