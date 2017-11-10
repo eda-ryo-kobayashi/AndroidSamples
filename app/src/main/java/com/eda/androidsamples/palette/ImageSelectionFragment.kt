@@ -28,12 +28,12 @@ class ImageSelectionFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_image_selection, container, false)
 
-        val adapter = Adapter(context)
+        val adapter = Adapter(context!!)
         adapter.callback = Consumer {
-            fragmentManager.beginTransaction()
+            fragmentManager!!.beginTransaction()
                 .replace(R.id.content, PaletteDetailFragment.newInstance(it))
                 .addToBackStack(null)
                 .commit()

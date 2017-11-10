@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             Item("通知欄にメッセージを表示", NotificationActivity::class.java),
             Item("円グラフ的なやつ表示", CircleGraphActivity::class.java),
             Item("Roomデータベースを使ったテスト", RoomSampleActivity::class.java),
-            Item("パレットテスト", PaletteActivity::class.java)
+            Item("パレットテスト", PaletteActivity::class.java),
+            Item("シーン遷移フレームワークテスト", SceneTransitionTestActivity::class.java)
         )
     }
 

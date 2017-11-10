@@ -42,6 +42,7 @@
         <activity android:name=".GyrosensorActivity"/>
         <activity android:name=".RoomSampleActivity"/>
         <activity android:name=".PaletteActivity"/>
+        <activity android:name=".SceneTransitionTestActivity"/>
 
         <service android:name=".customtabs.KeepAliveService"/>
 

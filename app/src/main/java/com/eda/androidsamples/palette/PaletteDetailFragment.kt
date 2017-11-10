@@ -33,10 +33,10 @@ class PaletteDetailFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_palette_detail, container, false)
 
-        val resId = arguments.getInt(KEY_RESOURCE_ID)
+        val resId = arguments!!.getInt(KEY_RESOURCE_ID)
         binding.image.setImageResource(resId)
         val bmp = BitmapFactory.decodeResource(resources, resId)
         Palette.from(bmp).generate {
