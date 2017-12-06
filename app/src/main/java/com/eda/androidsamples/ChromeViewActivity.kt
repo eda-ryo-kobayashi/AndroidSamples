@@ -62,11 +62,12 @@ class ChromeViewActivity : AppCompatActivity(), CustomTabActivityHelper.Connecti
     }
 
     override fun onCustomTabsConnected() {
+        // セッション接続
         setMayLaunch("https://google.com")
         setMayLaunch("https://yahoo.co.jp")
     }
 
     override fun onCustomTabsDisconnected() {
-
+        // セッション切断
     }
 }
