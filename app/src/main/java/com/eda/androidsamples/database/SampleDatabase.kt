@@ -15,7 +15,8 @@ import android.content.Context
     entities = arrayOf(
         User::class
     ),
-    version = 1)
+    version = 1,
+    exportSchema = false)
 abstract class SampleDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao

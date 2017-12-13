@@ -229,7 +229,7 @@ class NotificationActivity : AppCompatActivity() {
         val tsBuilder = TaskStackBuilder.create(packageContext)
         tsBuilder.addParentStack(clazz.java)
         tsBuilder.addNextIntent(intent)
-        return tsBuilder.getPendingIntent(requestCode, PendingIntent.FLAG_UPDATE_CURRENT)
+        return tsBuilder.getPendingIntent(requestCode, PendingIntent.FLAG_UPDATE_CURRENT)!!
     }
 
 }
