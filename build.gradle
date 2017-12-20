@@ -3,9 +3,17 @@
 buildscript {
 
     ext {
-        kotlin_version = '1.2.0'
+        kotlin_version = '1.2.10'
 
-        support_lib_version = '26.1.0'
+        version_code = 1
+        version_name = "0.1.0"
+
+        compile_sdk_version = 27
+        application_id = "com.eda.androidsamples"
+        min_sdk_version = 19
+        target_sdk_version = 27
+
+        support_lib_version = '27.0.2'
     }
 
     repositories {
