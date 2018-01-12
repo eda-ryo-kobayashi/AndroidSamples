@@ -44,7 +44,7 @@
         <activity android:name=".PaletteActivity"/>
         <activity android:name=".SceneTransitionTestActivity"/>
         <activity android:name=".RevealAnimationSampleActivity"/>
-        <activity android:name=".RevealAnimationShowActivity"/>
+        <activity android:name=".RevealAnimationShowActivity" android:theme="@style/TransparentTheme"/>
 
         <service android:name=".customtabs.KeepAliveService"/>
 
