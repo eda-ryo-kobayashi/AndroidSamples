@@ -1,6 +1,7 @@
 package com.eda.androidsamples
 
 import android.content.Intent
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,22 +19,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        val ITEMS = arrayOf(
-            Item("フォント一覧画面", FontListActivity::class.java),
-            Item("カメラキャプチャ", CameraCaptureActivity::class.java),
-            Item("カメラキャプチャ(Camera-Kit)", CameraKitActivity::class.java),
-            // TODO zxingでQR、Data Matrixキャプチャ
-            Item("Chrome Custom TabsでWebページを見る", ChromeViewActivity::class.java),
-            Item("加速度センサーを使う", AccelerometerActivity::class.java),
-            Item("ジャイロセンサーを使う", GyrosensorActivity::class.java),
-            Item("バイブレータを使う", VibratorActivity::class.java),
-            Item("フラッシュライトを使う", FlashLightActivity::class.java),
-            Item("通知欄にメッセージを表示", NotificationActivity::class.java),
-            Item("円グラフ的なやつ表示", CircleGraphActivity::class.java),
-            Item("Roomデータベースを使ったテスト", RoomSampleActivity::class.java),
-            Item("パレットテスト", PaletteActivity::class.java),
-            Item("シーン遷移フレームワークテスト", SceneTransitionTestActivity::class.java)
-        )
+        val ITEMS: MutableList<Item>
+
+        init {
+            ITEMS = arrayListOf(
+                Item("フォント一覧画面", FontListActivity::class.java),
+                Item("カメラキャプチャ", CameraCaptureActivity::class.java),
+                Item("カメラキャプチャ(Camera-Kit)", CameraKitActivity::class.java),
+                // TODO zxingでQR、Data Matrixキャプチャ
+                Item("Chrome Custom TabsでWebページを見る", ChromeViewActivity::class.java),
+                Item("加速度センサーを使う", AccelerometerActivity::class.java),
+                Item("ジャイロセンサーを使う", GyrosensorActivity::class.java),
+                Item("バイブレータを使う", VibratorActivity::class.java),
+                Item("フラッシュライトを使う", FlashLightActivity::class.java),
+                Item("通知欄にメッセージを表示", NotificationActivity::class.java),
+                Item("円グラフ的なやつ表示", CircleGraphActivity::class.java),
+                Item("Roomデータベースを使ったテスト", RoomSampleActivity::class.java),
+                Item("パレットテスト", PaletteActivity::class.java),
+                Item("シーン遷移フレームワークテスト", SceneTransitionTestActivity::class.java)
+            )
+
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ITEMS.add(Item("RevealAnimationサンプル", RevealAnimationSampleActivity::class.java))
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

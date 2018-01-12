@@ -43,6 +43,8 @@
         <activity android:name=".RoomSampleActivity"/>
         <activity android:name=".PaletteActivity"/>
         <activity android:name=".SceneTransitionTestActivity"/>
+        <activity android:name=".RevealAnimationSampleActivity"/>
+        <activity android:name=".RevealAnimationShowActivity"/>
 
         <service android:name=".customtabs.KeepAliveService"/>
 
