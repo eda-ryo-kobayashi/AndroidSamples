@@ -2,6 +2,7 @@ package com.eda.androidsamples
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Rect
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
@@ -58,11 +59,17 @@ class RevealAnimationSampleActivity : AppCompatActivity() {
             when(event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     touchX = event.x
-                    touchY = event.y
+                    touchY = event.y - getStatusBarHeight()
                 }
                 else -> {}
             }
             return@setOnTouchListener false
         }
+    }
+
+    private fun getStatusBarHeight(): Int {
+        val r = Rect()
+        window.decorView.getWindowVisibleDisplayFrame(r)
+        return r.top
     }
 }
