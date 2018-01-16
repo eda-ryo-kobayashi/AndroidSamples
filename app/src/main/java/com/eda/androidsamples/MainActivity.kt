@@ -12,14 +12,15 @@ import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
 
-    class Item(val label: String, val clazz: Class<out AppCompatActivity>) {
+    class Item(private val label: String,
+               val clazz: Class<out AppCompatActivity>) {
         override fun toString(): String {
             return label
         }
     }
 
     companion object {
-        val ITEMS: MutableList<Item>
+        val ITEMS: ArrayList<Item>
 
         init {
             ITEMS = arrayListOf(
