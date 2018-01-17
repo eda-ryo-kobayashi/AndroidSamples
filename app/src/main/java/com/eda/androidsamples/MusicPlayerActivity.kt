@@ -1,8 +1,14 @@
 package com.eda.androidsamples
 
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.support.v4.media.session.MediaSessionCompat
+import android.support.v4.media.session.PlaybackStateCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
@@ -19,6 +25,8 @@ import java.util.concurrent.TimeUnit
 
 class MusicPlayerActivity : AppCompatActivity() {
 
+    private lateinit var mediaSession: MediaSessionCompat
+    private lateinit var stateBuilder: PlaybackStateCompat.Builder
     private var mp: MediaPlayer? = null
     private var disposable: Disposable? = null
     private lateinit var seekBar: SeekBar
@@ -29,6 +37,22 @@ class MusicPlayerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music_player)
+
+        // media session作成
+        mediaSession = MediaSessionCompat(this, "AS - MusicPlayer")
+        mediaSession.setFlags(
+            MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS or
+                MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS)
+        mediaSession.setCallback(object: MediaSessionCompat.Callback() {
+            override fun onPlay() {
+                setPlaying(true)
+            }
+
+            override fun onPause() {
+                setPlaying(false)
+            }
+        },
+            Handler(Looper.getMainLooper()))
 
         mp = MediaPlayer.create(this, R.raw.jazz_in_paris)
 
@@ -61,17 +85,10 @@ class MusicPlayerActivity : AppCompatActivity() {
             }
         })
 
-        findViewById<Button>(R.id.play).setOnClickListener { v ->
-            mp?.let { player ->
-                val btn = v as Button
-                if(player.isPlaying) {
-                    player.pause()
-                    btn.text = "再生"
-                } else {
-                    player.start()
-                    btn.text = "停止"
-                }
-            }
+        // 再生・停止
+        findViewById<Button>(R.id.play).setOnClickListener {
+            togglePlay()
+            mediaSession.isActive = true
         }
 
     }
@@ -88,6 +105,7 @@ class MusicPlayerActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        mediaSession.release()
         mp?.release()
         mp = null
         disposable?.dispose()
@@ -123,5 +141,61 @@ class MusicPlayerActivity : AppCompatActivity() {
         val minutes = second / 60
         val sec = second % 60
         time.text = "%02d:%02d".format(minutes, sec)
+    }
+
+    private fun setPlaying(play: Boolean) {
+        mp?.let { player ->
+            val btn = findViewById<Button>(R.id.play)
+            if(play) {
+                player.start()
+                btn.text = "停止"
+                updateMediaState(false)
+            } else {
+                player.pause()
+                btn.text = "再生"
+                updateMediaState(true)
+            }
+        }
+    }
+
+    private fun togglePlay() {
+        mp?.let { player ->
+            val btn = findViewById<Button>(R.id.play)
+            if(player.isPlaying) {
+                player.pause()
+                btn.text = "再生"
+                updateMediaState(true)
+            } else {
+                player.start()
+                btn.text = "停止"
+                updateMediaState(false)
+            }
+        }
+    }
+
+    private fun updateMediaState(isPlaying: Boolean) {
+        stateBuilder = PlaybackStateCompat.Builder()
+            .setActions(
+                PlaybackStateCompat.ACTION_PLAY or
+                    PlaybackStateCompat.ACTION_PAUSE or
+                    PlaybackStateCompat.ACTION_PLAY_PAUSE)
+            .setState(
+                if(isPlaying) PlaybackStateCompat.STATE_PAUSED else PlaybackStateCompat.STATE_PLAYING,
+                0,
+                1.0f
+            )
+        mediaSession.setPlaybackState(stateBuilder.build())
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return super.onKeyDown(keyCode, event)
+        }
+        when(keyCode) {
+            KeyEvent.KEYCODE_MEDIA_PLAY -> {
+                return true
+            }
+        }
+        return super.onKeyDown(keyCode, event)
     }
 }
