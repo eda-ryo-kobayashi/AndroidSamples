@@ -61,9 +61,9 @@ class MusicPlayerActivity : AppCompatActivity() {
         current = findViewById(R.id.current)
         time = findViewById(R.id.time)
         seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                if(!isControlling) return
-                p0?.let { bar ->
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if(!fromUser) return
+                seekBar?.let { bar ->
                     updateUi(bar.progress, bar.max)
                 }
             }
