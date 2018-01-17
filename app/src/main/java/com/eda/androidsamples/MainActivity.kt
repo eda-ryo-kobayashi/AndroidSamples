@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 ITEMS.add(Item("RevealAnimationサンプル", RevealAnimationSampleActivity::class.java))
+                ITEMS.add(Item("Activity間遷移サンプル", ActivityTransitionTestActivity::class.java))
             }
         }
     }
