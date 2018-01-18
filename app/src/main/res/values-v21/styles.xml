@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme.TransitionTest">
+    <style name="TransitionTheme.Test">
         <item name="android:windowExitTransition">
             @transition/transition_test_exit_transition
         </item>
@@ -16,7 +16,7 @@
         </item>
     </style>
 
-    <style name="AppTheme.TransitionTestOpened">
+    <style name="TransitionTheme.TestOpened">
         <item name="android:windowEnterTransition">
             @transition/opened_enter_transition
         </item>

@@ -8,10 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.TransitionTest">
+    <style name="TransitionTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.TransitionTestOpened">
+    <style name="TransitionTheme.Test">
+    </style>
+
+    <style name="TransitionTheme.TestOpened">
     </style>
 
     <!-- 背景が透明の画面 -->

@@ -47,9 +47,9 @@
         <activity android:name=".RevealAnimationShowActivity" android:theme="@style/TransparentTheme"/>
         <activity android:name=".MusicPlayerActivity"/>
         <activity android:name=".ActivityTransitionTestActivity"
-                  android:theme="@style/AppTheme.TransitionTest"/>
+                  android:theme="@style/TransitionTheme.Test"/>
         <activity android:name=".ActivityTransitionTestOpenedActivity"
-                  android:theme="@style/AppTheme.TransitionTestOpened"/>
+                  android:theme="@style/TransitionTheme.TestOpened"/>
 
         <service android:name=".customtabs.KeepAliveService"/>
 

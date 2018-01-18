@@ -4,4 +4,7 @@
     <string name="user_id">ID : %s</string>
     <string name="user_name">名前 : %s</string>
     <string name="user_age">年齢 : %d</string>
+
+    <string name="transition_shared_text">shared_text</string>
+
 </resources>

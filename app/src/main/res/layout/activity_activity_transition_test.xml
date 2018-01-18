@@ -7,6 +7,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transitionテスト"/>
+
+        <TextView
+            android:id="@+id/shared_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="シェアされるテキスト"
+            android:transitionName="@string/transition_shared_text"/>
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="アニメーション開始"/>
+
     </LinearLayout>
 
 </layout>
