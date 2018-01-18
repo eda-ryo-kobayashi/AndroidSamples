@@ -24,8 +24,4 @@ class ActivityTransitionTestOpenedActivity : AppCompatActivity() {
             ActivityCompat.finishAfterTransition(this)
         }
     }
-
-//    override fun finish() {
-//        supportFinishAfterTransition()
-//    }
 }
