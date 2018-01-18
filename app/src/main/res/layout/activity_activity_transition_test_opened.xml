@@ -14,7 +14,8 @@
             android:text="シェアされた"
             android:textColor="#F00"
             android:transitionName="@string/transition_shared_text"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
 
         <LinearLayout
             android:orientation="vertical"
