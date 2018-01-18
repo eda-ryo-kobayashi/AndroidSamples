@@ -2,29 +2,43 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Transitionテスト"/>
+        <View
+            android:id="@+id/bg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#000"
+            android:transitionName="@string/transition_bg"/>
 
-        <TextView
-            android:id="@+id/shared_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="シェアされるテキスト"
-            android:transitionName="@string/transition_shared_text"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/bg">
 
-        <Button
-            android:id="@+id/start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="アニメーション開始"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transitionテスト"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/shared_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="シェアされるテキスト"
+                android:transitionName="@string/transition_shared_text"/>
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="アニメーション開始"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </layout>

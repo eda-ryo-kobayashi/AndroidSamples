@@ -2,14 +2,30 @@
 <transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
                android:duration="@integer/transition_duration">
 
-    <changeBounds>
-        <!-- 警告が出てるけど問題なし -->
-        <arcMotion android:minimumHorizontalAngle="15"
-                   android:minimumVerticalAngle="0"
-                   android:maximumAngle="90"/>
-    </changeBounds>
-    <changeTransform />
-    <changeClipBounds />
-    <changeImageTransform />
+    <transitionSet>
+        <changeBounds>
+            <targets>
+                <target android:targetId="@+id/bg"/>
+            </targets>
+        </changeBounds>
+        <changeTransform />
+        <changeClipBounds />
+        <changeImageTransform />
+    </transitionSet>
+
+    <transitionSet>
+        <changeBounds>
+            <targets>
+                <target android:targetId="@+id/shared_text"/>
+            </targets>
+            <!-- 警告が出てるけど問題なし -->
+            <arcMotion android:minimumHorizontalAngle="15"
+                       android:minimumVerticalAngle="0"
+                       android:maximumAngle="90"/>
+        </changeBounds>
+        <changeTransform />
+        <changeClipBounds />
+        <changeImageTransform />
+    </transitionSet>
 
 </transitionSet>
