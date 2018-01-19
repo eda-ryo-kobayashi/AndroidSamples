@@ -30,6 +30,7 @@ class ActivityTransitionTestActivity : AppCompatActivity() {
 
             // Kotlinで複数のSharedElementを扱うのめんどくさい問題
 
+            // *arrayListOfの*の意味は「Collectionの中身をバラバラにする」という意味
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
 //                binding.sharedText, ViewCompat.getTransitionName(binding.sharedText)
                 *arrayListOf(
