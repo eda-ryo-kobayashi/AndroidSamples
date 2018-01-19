@@ -43,7 +43,7 @@
         <activity android:name=".RoomSampleActivity"/>
         <activity android:name=".PaletteActivity"/>
         <activity android:name=".SceneTransitionTestActivity"/>
-        <activity android:name=".RevealAnimationSampleActivity"/>
+        <activity android:name=".RevealAnimationSampleActivity" android:theme="@style/TransitionTheme"/>
         <activity android:name=".RevealAnimationShowActivity" android:theme="@style/TransparentTheme"/>
         <activity android:name=".MusicPlayerActivity"/>
         <activity android:name=".ActivityTransitionTestActivity"

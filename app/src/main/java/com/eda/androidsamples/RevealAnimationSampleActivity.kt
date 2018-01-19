@@ -59,7 +59,7 @@ class RevealAnimationSampleActivity : AppCompatActivity() {
             when(event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     touchX = event.x
-                    touchY = event.y - getStatusBarHeight()
+                    touchY = event.y// - getStatusBarHeight()
                 }
                 else -> {}
             }
