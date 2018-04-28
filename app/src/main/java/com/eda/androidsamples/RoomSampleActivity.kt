@@ -142,12 +142,12 @@ class RoomSampleActivity : AppCompatActivity() {
             return user
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             return ViewHolder(inflater.inflate(R.layout.view_user_item, parent, false))
         }
 
-        override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-            holder?.setItem(items[position])
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.setItem(items[position])
         }
 
         override fun getItemCount(): Int {
@@ -174,11 +174,11 @@ class RoomSampleActivity : AppCompatActivity() {
     // RecyclerView ViewHolder
     class ViewHolder(
         itemView: View,
-        private val binding: ViewUserItemBinding = DataBindingUtil.bind(itemView)
+        private val binding: ViewUserItemBinding? = DataBindingUtil.bind(itemView)
     ): RecyclerView.ViewHolder(itemView) {
 
         fun setItem(item: User) {
-            binding.item = item
+            binding?.item = item
         }
     }
 }

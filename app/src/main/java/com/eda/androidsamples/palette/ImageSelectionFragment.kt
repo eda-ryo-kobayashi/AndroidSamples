@@ -47,12 +47,12 @@ class ImageSelectionFragment : Fragment() {
                   private val inflater: LayoutInflater = LayoutInflater.from(context)) : RecyclerView.Adapter<ViewHolder>() {
         var callback: Consumer<Int>? = null
 
-        override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-            if(position == 0) holder?.setItem(R.drawable.puppy)
-            else if(position == 1) holder?.setItem(R.drawable.mig)
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            if(position == 0) holder.setItem(R.drawable.puppy)
+            else if(position == 1) holder.setItem(R.drawable.mig)
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             return ViewHolder(inflater.inflate(R.layout.view_image_selection_item, parent, false), callback = callback)
         }
 
@@ -62,9 +62,12 @@ class ImageSelectionFragment : Fragment() {
     }
 
     class ViewHolder(itemView: View,
-                     private val binding: ViewImageSelectionItemBinding = DataBindingUtil.bind(itemView),
+                     private val binding: ViewImageSelectionItemBinding? = DataBindingUtil.bind(itemView),
                      private val callback: Consumer<Int>?) : RecyclerView.ViewHolder(itemView) {
         fun setItem(resId: Int) {
+            if (binding == null) {
+                return
+            }
             binding.image.setImageResource(resId)
             binding.image.setOnClickListener {
                 try { callback?.accept(resId) } catch (e: Exception) {}
