@@ -30,21 +30,20 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    configurations.all {
+        resolutionStrategy.force "com.android.support:exifinterface:$support_lib_version"
+    }
 }
 
 final anko_version = "0.10.3"
 dependencies {
-
-    kapt ('com.android.databinding:compiler:3.1.2') {
-        exclude group: 'com.android.support', module: 'support-v4'
-    }
-    implementation "com.android.support:support-v4:$support_lib_version"
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation "com.android.support:recyclerview-v7:$support_lib_version"
     implementation "com.android.support:customtabs:$support_lib_version"
     implementation "com.android.support:palette-v7:$support_lib_version"
+
+    implementation "com.android.support:support-v4:$support_lib_version"
     // v4
 //    implementation "com.android.support:support-compat:$support_lib_version"
 //    implementation "com.android.support:support-core-utils:$support_lib_version"
@@ -52,7 +51,7 @@ dependencies {
 //    implementation "com.android.support:support-media-compat:$support_lib_version"
 //    implementation "com.android.support:support-fragment:$support_lib_version"
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -66,16 +65,16 @@ dependencies {
     // Camera-Kit
     implementation 'com.wonderkiln:camerakit:0.13.1'
 
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'com.uber.autodispose:autodispose:0.7.0'
+    implementation 'com.uber.autodispose:autodispose:0.8.0'
     implementation 'com.uber.autodispose:autodispose-kotlin:0.7.0'
 
     // Room
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    kapt "android.arch.persistence.room:compiler:1.0.0"
-    implementation "android.arch.persistence.room:rxjava2:1.0.0"
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+    implementation "android.arch.persistence.room:rxjava2:1.1.1"
 }
 
 repositories {
