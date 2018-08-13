@@ -20,26 +20,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        val ITEMS: ArrayList<Item>
+        val ITEMS: ArrayList<Item> = arrayListOf(
+            Item("フォント一覧画面", FontListActivity::class.java),
+            Item("カメラキャプチャ", CameraCaptureActivity::class.java),
+            Item("カメラキャプチャ(Camera-Kit)", CameraKitActivity::class.java),
+            // TODO zxingでQR、Data Matrixキャプチャ
+            Item("Chrome Custom TabsでWebページを見る", ChromeViewActivity::class.java),
+            Item("加速度センサーを使う", AccelerometerActivity::class.java),
+            Item("ジャイロセンサーを使う", GyrosensorActivity::class.java),
+            Item("バイブレータを使う", VibratorActivity::class.java),
+            Item("フラッシュライトを使う", FlashLightActivity::class.java),
+            Item("通知欄にメッセージを表示", NotificationActivity::class.java),
+            Item("円グラフ的なやつ表示", CircleGraphActivity::class.java),
+            Item("Roomデータベースを使ったテスト", RoomSampleActivity::class.java),
+            Item("パレットテスト", PaletteActivity::class.java),
+            Item("シーン遷移フレームワークテスト", SceneTransitionTestActivity::class.java),
+            Item("ミュージックプレイヤー画面", MusicPlayerActivity::class.java)
+        )
 
         init {
-            ITEMS = arrayListOf(
-                Item("フォント一覧画面", FontListActivity::class.java),
-                Item("カメラキャプチャ", CameraCaptureActivity::class.java),
-                Item("カメラキャプチャ(Camera-Kit)", CameraKitActivity::class.java),
-                // TODO zxingでQR、Data Matrixキャプチャ
-                Item("Chrome Custom TabsでWebページを見る", ChromeViewActivity::class.java),
-                Item("加速度センサーを使う", AccelerometerActivity::class.java),
-                Item("ジャイロセンサーを使う", GyrosensorActivity::class.java),
-                Item("バイブレータを使う", VibratorActivity::class.java),
-                Item("フラッシュライトを使う", FlashLightActivity::class.java),
-                Item("通知欄にメッセージを表示", NotificationActivity::class.java),
-                Item("円グラフ的なやつ表示", CircleGraphActivity::class.java),
-                Item("Roomデータベースを使ったテスト", RoomSampleActivity::class.java),
-                Item("パレットテスト", PaletteActivity::class.java),
-                Item("シーン遷移フレームワークテスト", SceneTransitionTestActivity::class.java),
-                Item("ミュージックプレイヤー画面", MusicPlayerActivity::class.java)
-            )
 
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 ITEMS.add(Item("RevealAnimationサンプル", RevealAnimationSampleActivity::class.java))
