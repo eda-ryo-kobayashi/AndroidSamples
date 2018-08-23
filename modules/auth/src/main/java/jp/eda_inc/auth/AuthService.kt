@@ -7,4 +7,10 @@ package jp.eda_inc.auth
 class AuthService {
 
   fun authenticate() {}
+
+  fun clearAuthentication() {}
+
+  fun getAuthToken(): String {
+    return ""
+  }
 }
