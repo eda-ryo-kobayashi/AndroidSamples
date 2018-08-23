@@ -37,6 +37,10 @@ android {
 
 final anko_version = "0.10.3"
 dependencies {
+
+    implementation project(":auth")
+    implementation project(":search")
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation "com.android.support:recyclerview-v7:$support_lib_version"
