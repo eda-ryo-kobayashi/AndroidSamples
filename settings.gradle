@@ -1,4 +1,4 @@
-include ':app', ':auth', ':search'
+include ':app', ':auth', ':search', ':user'
 def modulesDir = new File('modules')
 project(':auth').projectDir = new File(modulesDir, 'auth')
 project(':search').projectDir = new File(modulesDir, 'search')
