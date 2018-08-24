@@ -27,9 +27,11 @@ android {
 
 }
 
-final support_lib_version = '1.0.0-rc01'
-final arch_version = '2.0.0-rc01'
+final androidx_support_lib_version = '1.0.0-rc01'
+//final androidx_arch_version = '2.0.0-rc01'
+final arch_version = '1.1.1'
 final dagger_version = '2.16'
+final autodispose_version = '1.0.0-RC2'
 
 dependencies {
 
@@ -48,21 +50,30 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 
-    implementation "androidx.core:core:$support_lib_version"
-    implementation "androidx.core:core-ktx:$support_lib_version"
-    implementation "androidx.appcompat:appcompat:$support_lib_version"
+    implementation "com.android.support:appcompat-v7:$support_lib_version"
+//    implementation "androidx.core:core:$androidx_support_lib_version"
+//    implementation "androidx.core:core-ktx:$androidx_support_lib_version"
+//    implementation "androidx.appcompat:appcompat:$androidx_support_lib_version"
 
-    implementation "androidx.lifecycle:lifecycle-extensions:$arch_version"
+    implementation "android.arch.lifecycle:extensions:$arch_version"
+    //implementation "androidx.lifecycle:lifecycle-extensions:$androidx_arch_version"
 
     implementation 'io.reactivex.rxjava2:rxjava:2.2.1'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'com.uber.autodispose:autodispose:1.0.0-RC2'
-    implementation 'com.uber.autodispose:autodispose-ktx:1.0.0-RC2'
+    implementation "com.uber.autodispose:autodispose:$autodispose_version"
+    implementation "com.uber.autodispose:autodispose-ktx:$autodispose_version"
+    implementation "com.uber.autodispose:autodispose-android-archcomponents:$autodispose_version"
 
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger-android:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    configurations {
+        implementation {
+            exclude group: 'com.android.support', module: 'support-v4'
+        }
+    }
 }
