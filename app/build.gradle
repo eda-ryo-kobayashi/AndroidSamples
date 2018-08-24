@@ -41,6 +41,11 @@ dependencies {
     implementation project(":auth")
     implementation project(":search")
 
+    // assertion
+    testImplementation "com.google.truth:truth:$truth_version"
+    // Mockito
+    testImplementation "org.mockito:mockito-core:$mockito_core_version"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation "com.android.support:recyclerview-v7:$support_lib_version"

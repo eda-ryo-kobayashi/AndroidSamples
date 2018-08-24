@@ -13,6 +13,9 @@ buildscript {
         target_sdk_version = 28
 
         support_lib_version = '28.0.0-rc01'
+
+        truth_version = "0.42"
+        mockito_core_version = "2.21.0"
     }
 
     repositories {
