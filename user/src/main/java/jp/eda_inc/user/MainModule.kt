@@ -2,7 +2,6 @@ package jp.eda_inc.user
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -13,20 +12,16 @@ import dagger.multibindings.IntoMap
  *
  */
 
-@Module(includes = [ProvideViewModel::class])
-abstract class MainModule {
+@Module(includes = [ViewModelModule::class])
+class MainModule {
 
   @Provides
-  fun providesMainDispatcher() = MainDispatcher()
-
-  @Provides
-  fun provideMainViewModel(factory: ViewModelProvider.Factory, target: MainActivity) =
-      ViewModelProviders.of(target, factory).get(MainViewModel::class.java)
+  fun providesMainDispatcher(): MainDispatcher = MainDispatcherImpl()
 
 }
 
 @Module
-abstract class ProvideViewModel {
+abstract class ViewModelModule {
 
   @Binds
   abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
