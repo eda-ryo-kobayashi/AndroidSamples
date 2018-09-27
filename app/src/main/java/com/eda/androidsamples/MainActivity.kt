@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
         Item("Roomデータベースを使ったテスト", RoomSampleActivity::class.java),
         Item("パレットテスト", PaletteActivity::class.java),
         Item("シーン遷移フレームワークテスト", SceneTransitionTestActivity::class.java),
-        Item("ミュージックプレイヤー画面", MusicPlayerActivity::class.java)
+        Item("ミュージックプレイヤー画面", MusicPlayerActivity::class.java),
+        Item("Coroutineテスト", CoroutineTestActivity::class.java)
     )
 
     init {

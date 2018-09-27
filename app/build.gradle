@@ -46,6 +46,10 @@ dependencies {
     // Mockito
     testImplementation "org.mockito:mockito-core:$mockito_core_version"
 
+    // Coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.26.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-rx2:0.26.1'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation "com.android.support:recyclerview-v7:$support_lib_version"
@@ -88,4 +92,9 @@ dependencies {
 
 repositories {
     google()
+}
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }
