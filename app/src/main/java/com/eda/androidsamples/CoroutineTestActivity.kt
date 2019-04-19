@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
+import kotlinx.coroutines.rx2.asCoroutineDispatcher
 import kotlinx.coroutines.rx2.rxSingle
 import kotlin.coroutines.CoroutineContext
 
@@ -13,6 +15,8 @@ import kotlin.coroutines.CoroutineContext
  *
  */
 class CoroutineTestActivity : AppCompatActivity(), CoroutineScope {
+
+  private val io: CoroutineContext = Schedulers.io().asCoroutineDispatcher()
 
   private var job = Job()
   override val coroutineContext: CoroutineContext
@@ -52,7 +56,10 @@ class CoroutineTestActivity : AppCompatActivity(), CoroutineScope {
     launch {
       try {
         Log.d("start heavy : ", Thread.currentThread().name)
-        val exp = withContext(coroutineContext + Dispatchers.IO) {
+        val exp = withContext(
+          //Dispatchers.MAIN // メインスレ(このスレ)
+          io // 別スレ
+        ) {
           heavy()
         }
         Log.d("heavy result : ", exp)
@@ -77,7 +84,7 @@ class CoroutineTestActivity : AppCompatActivity(), CoroutineScope {
     return "complete"
   }
 
-  private fun heavyIO() = launch(Dispatchers.IO) {
+  private fun heavyIO() = launch(io) {
     delay(1000)
     Log.d("heavyIO Thread : ", Thread.currentThread().name)
     launch(Dispatchers.Main) {
