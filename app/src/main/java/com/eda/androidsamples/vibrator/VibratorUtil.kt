@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.support.annotation.IntRange
+import androidx.annotation.IntRange
 
 /**
  * Created by kobayashiryou on 2017/09/14.

@@ -1,6 +1,6 @@
 package com.eda.androidsamples.customtabs;
 
-import android.support.customtabs.CustomTabsClient;
+import androidx.browser.customtabs.CustomTabsClient;
 
 /**
  * Created by kobayashiryou on 2017/09/12.

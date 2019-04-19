@@ -1,7 +1,7 @@
 package com.eda.androidsamples
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * Created by kobayashiryou on 2017/09/13.

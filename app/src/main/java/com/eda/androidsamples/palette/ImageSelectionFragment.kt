@@ -1,10 +1,10 @@
 package com.eda.androidsamples.palette
 
 import android.content.Context
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ import io.reactivex.functions.Consumer
  *
  * 画像選択画面
  */
-class ImageSelectionFragment : Fragment() {
+class ImageSelectionFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var binding: FragmentImageSelectionBinding
 
@@ -44,7 +44,7 @@ class ImageSelectionFragment : Fragment() {
     }
 
     class Adapter(context: Context,
-                  private val inflater: LayoutInflater = LayoutInflater.from(context)) : RecyclerView.Adapter<ViewHolder>() {
+                  private val inflater: LayoutInflater = LayoutInflater.from(context)) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
         var callback: Consumer<Int>? = null
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -63,7 +63,7 @@ class ImageSelectionFragment : Fragment() {
 
     class ViewHolder(itemView: View,
                      private val binding: ViewImageSelectionItemBinding? = DataBindingUtil.bind(itemView),
-                     private val callback: Consumer<Int>?) : RecyclerView.ViewHolder(itemView) {
+                     private val callback: Consumer<Int>?) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         fun setItem(resId: Int) {
             if (binding == null) {
                 return

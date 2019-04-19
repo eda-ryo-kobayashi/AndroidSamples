@@ -2,3 +2,11 @@ include ':app', ':auth', ':search', ':user'
 def modulesDir = new File('modules')
 project(':auth').projectDir = new File(modulesDir, 'auth')
 project(':search').projectDir = new File(modulesDir, 'search')
+
+//include ':app'
+//['core', 'library'].each {
+//    file(it).eachDir { dir ->
+//        include dir.name
+//        project(":${dir.name}").projectDir = dir
+//    }
+//}

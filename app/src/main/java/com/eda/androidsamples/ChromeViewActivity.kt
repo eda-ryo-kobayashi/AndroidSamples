@@ -2,9 +2,9 @@ package com.eda.androidsamples
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.customtabs.CustomTabsIntent
-import android.support.customtabs.CustomTabsSession
-import android.support.v7.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.browser.customtabs.CustomTabsSession
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import com.eda.androidsamples.customtabs.CustomTabActivityHelper

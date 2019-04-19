@@ -1,11 +1,11 @@
 package com.eda.androidsamples.palette
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.support.annotation.DrawableRes
-import android.support.v4.app.Fragment
-import android.support.v7.graphics.Palette
+import androidx.annotation.DrawableRes
+import androidx.fragment.app.Fragment
+import androidx.palette.graphics.Palette
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ import com.eda.androidsamples.databinding.FragmentPaletteDetailBinding
  *
  * パレット詳細画面
  */
-class PaletteDetailFragment : Fragment() {
+class PaletteDetailFragment : androidx.fragment.app.Fragment() {
 
   private lateinit var binding: FragmentPaletteDetailBinding
 
@@ -39,7 +39,7 @@ class PaletteDetailFragment : Fragment() {
     val resId = arguments!!.getInt(KEY_RESOURCE_ID)
     binding.image.setImageResource(resId)
     val bmp = BitmapFactory.decodeResource(resources, resId)
-    Palette.from(bmp).generate {
+    androidx.palette.graphics.Palette.from(bmp).generate {
       if (it == null) {
         return@generate
       }

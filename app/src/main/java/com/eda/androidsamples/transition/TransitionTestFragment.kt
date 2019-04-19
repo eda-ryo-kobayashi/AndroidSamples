@@ -1,7 +1,7 @@
 package com.eda.androidsamples.transition
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.transition.Scene
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +19,7 @@ import org.jetbrains.anko.find
  *
  * Scene TransitionテストFragment
  */
-class TransitionTestFragment : Fragment() {
+class TransitionTestFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var sceneA: Scene
     private lateinit var sceneB: Scene

@@ -10,7 +10,7 @@
             type="com.eda.androidsamples.database.User"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -55,6 +55,6 @@
             app:layout_constraintTop_toBottomOf="@+id/name"
             tools:text="@string/user_age"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -1,11 +1,11 @@
 package com.eda.androidsamples
 
 import android.content.Context
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,16 +46,16 @@ class RoomSampleActivity : AppCompatActivity() {
     val helper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
         ItemTouchHelper.UP or ItemTouchHelper.DOWN,
         ItemTouchHelper.RIGHT) {
-      override fun onMove(recyclerView: RecyclerView,
-                          viewHolder: RecyclerView.ViewHolder,
-                          target: RecyclerView.ViewHolder): Boolean {
+      override fun onMove(recyclerView: androidx.recyclerview.widget.RecyclerView,
+                          viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder,
+                          target: androidx.recyclerview.widget.RecyclerView.ViewHolder): Boolean {
         val fromPos = viewHolder.adapterPosition
         val toPos = target.adapterPosition
         adapter.notifyItemMoved(fromPos, toPos)
         return true
       }
 
-      override fun onSwiped(viewHolder: RecyclerView.ViewHolder,
+      override fun onSwiped(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder,
                             direction: Int) {
         val fromPos = viewHolder.adapterPosition
         Single.just(adapter.removeItem(fromPos))
@@ -89,7 +89,7 @@ class RoomSampleActivity : AppCompatActivity() {
       context: Context,
       private val inflater: LayoutInflater = LayoutInflater.from(context),
       private val items: MutableList<User> = mutableListOf()
-  ) : RecyclerView.Adapter<ViewHolder>() {
+  ) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
 
     fun setItems(newItems: List<User>) {
       items.clear()
@@ -173,7 +173,7 @@ class RoomSampleActivity : AppCompatActivity() {
   class ViewHolder(
       itemView: View,
       private val binding: ViewUserItemBinding? = DataBindingUtil.bind(itemView)
-  ) : RecyclerView.ViewHolder(itemView) {
+  ) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     fun setItem(item: User) {
       binding?.item = item
