@@ -50,19 +50,31 @@ class CoroutineTestActivity : AppCompatActivity(), CoroutineScope {
 
   private fun executeTest() {
     launch {
-      Log.d("start heavy : ", Thread.currentThread().name)
-      heavy()
-      Log.d("end heavy : ", Thread.currentThread().name)
+      try {
+        Log.d("start heavy : ", Thread.currentThread().name)
+        val exp = withContext(coroutineContext + Dispatchers.IO) {
+          heavy()
+        }
+        Log.d("heavy result : ", exp)
+        Log.d("end heavy : ", Thread.currentThread().name)
 
-      Log.d("start heavyIO : ", Thread.currentThread().name)
-      heavyIO()
-      Log.d("end heavyIO : ", Thread.currentThread().name)
+        Log.d("start heavyIO : ", Thread.currentThread().name)
+        heavyIO()
+        Log.d("end heavyIO : ", Thread.currentThread().name)
+      } finally {
+        withContext(NonCancellable) {
+          // キャンセルされたコルーチン内でも中断処理が書ける
+          delay(1000)
+          Log.d("Do whatever", "NonCancellable")
+        }
+      }
     }
   }
 
-  private suspend fun heavy() {
+  private suspend fun heavy(): String {
     delay(1000)
     Log.d("heavy Thread : ", Thread.currentThread().name)
+    return "complete"
   }
 
   private fun heavyIO() = launch(Dispatchers.IO) {
