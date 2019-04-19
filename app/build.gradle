@@ -65,6 +65,9 @@ dependencies {
     implementation 'androidx.browser:browser:1.0.0'
     implementation 'androidx.palette:palette:1.0.0'
 
+    def lifecycle_version = "2.0.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // v4
 //    implementation "com.android.support:support-compat:$support_lib_version"
