@@ -50,30 +50,31 @@ class CoroutineTestActivity : AppCompatActivity(), CoroutineScope {
   override fun onDestroy() {
     super.onDestroy()
     job.cancel()
+    // キャンセル後も処理を繰り返したい場合はjob.cancel()ではなく、以下のように書く
+    // coroutineContext.cancelChildren()
+    // executeTest()
   }
 
-  private fun executeTest() {
-    launch {
-      try {
-        Log.d("start heavy : ", Thread.currentThread().name)
-        val exp = withContext(
-          //Dispatchers.MAIN // メインスレ(このスレ)
-          io // 別スレ
-        ) {
-          heavy()
-        }
-        Log.d("heavy result : ", exp)
-        Log.d("end heavy : ", Thread.currentThread().name)
+  private fun executeTest() = launch {
+    try {
+      Log.d("start heavy : ", Thread.currentThread().name)
+      val exp = withContext(
+        //Dispatchers.MAIN // メインスレ(このスレ)
+        io // 別スレ
+      ) {
+        heavy()
+      }
+      Log.d("heavy result : ", exp)
+      Log.d("end heavy : ", Thread.currentThread().name)
 
-        Log.d("start heavyIO : ", Thread.currentThread().name)
-        heavyIO()
-        Log.d("end heavyIO : ", Thread.currentThread().name)
-      } finally {
-        withContext(NonCancellable) {
-          // キャンセルされたコルーチン内でも中断処理が書ける
-          delay(1000)
-          Log.d("Do whatever", "NonCancellable")
-        }
+      Log.d("start heavyIO : ", Thread.currentThread().name)
+      heavyIO()
+      Log.d("end heavyIO : ", Thread.currentThread().name)
+    } finally {
+      withContext(NonCancellable) {
+        // キャンセルされたコルーチン内でも中断処理が書ける
+        delay(1000)
+        Log.d("Do whatever", "NonCancellable")
       }
     }
   }
